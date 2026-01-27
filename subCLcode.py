@@ -28,7 +28,7 @@ def get_last_conjunction(sentence):
     """
     doc = nlp(str(sentence))
 
-    # 1) Check for a pronoun at the start (ignore filler tokens that start with '&' or contain '@')
+    # check for a pronoun at the start; ignore filler tokens that start with & or contain @
     for token in doc:
         t = token.text
         if not t or t.isspace():
@@ -45,7 +45,7 @@ def get_last_conjunction(sentence):
         # otherwise stop checking first-token behavior
         break
 
-    # 2) Fallback: find first conjunction or relative pronoun anywhere in the sentence
+    # find first conjunction or relative pronoun anywhere in the sentence
     for token in doc:
         if token.pos_ in {'CCONJ', 'SCONJ'}:
             return token.text
@@ -59,3 +59,4 @@ df["conj"] = df["utterance"].apply(get_last_conjunction)
 df.to_excel("SubCLFinal.xlsx", index = False)
 
 print ("done!")
+
