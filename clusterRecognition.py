@@ -13,7 +13,7 @@
 """Recognition of clusters in bisyllabic / monosyllabic words in German.
 - Syllable recognition
 - Cluster recognition
-- Error of grammatical gender returned as 1 (false) or 0 (true)"""
+- Error of grammatical gender returned as 1 (false) or 0 (true) (not done yet)"""
 
 
 
@@ -92,3 +92,4 @@ print("gaps gone!")
 dfNoGaps.to_excel("corpusFinal.xlsx", index = False)
 
 print("done!")
+
