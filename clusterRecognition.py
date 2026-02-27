@@ -1,24 +1,21 @@
 # library setup guide in terminal
 
-# spacy
+# spacy:
 # pip install -U pip setuptools wheel
 # pip install -U spacy
 # python -m spacy download de_core_news_sm
 
-# pandas
+#syllable reader:
+# pip install spacy_syllables
+
+# pandas:
 # pip install pandas
 
 
 
 """Recognition of clusters in bisyllabic / monosyllabic words in German.
 - Syllable recognition
-- Cluster recognition
-- Error of grammatical gender returned as 1 (false) or 0 (true) (not done yet)"""
-
-
-
-# oder spaCy vielleicht für geschlechtserkennung? wenn spaCy und daten zusammenstimmen = 0, wenn nicht = 1
-# später: "spaCy sagt zB männlich (spalte 1); person sagte aber weiblich (spalte 2) --> wenn beide übereinstimmen = 0, wenn nicht = 1"
+- Cluster recognition"""
 
 
 import spacy
@@ -86,10 +83,8 @@ dfNoGaps = df.drop(df[(df['wordInitial'] == "") & (df['schwa'] == "")].index)
 
 print("gaps gone!")
 
-
 # final save
 # df.to_excel("corpusFinal.xlsx", index = False)
 dfNoGaps.to_excel("corpusFinal.xlsx", index = False)
 
 print("done!")
-
